@@ -7,10 +7,13 @@ using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
 
 namespace FIG.Assessment;
-/*1 Line 24 vulnerable to an injection attack as the query isn't parameterized query
+/*1) Line 24 is vulnerable to an injection attack as the query isn't parameterized query
+
 2)	MD5 is out of date ms documentation recommends we use Pbkdf2 
 https://andrewlock.net/exploring-the-asp-net-core-identity-passwordhasher/
+
 3)	The password verification implies the password hashes aren’t being salted
+
 4)	No try, catch finally logic and the connection  isn’t being closed
 */
 public class Example2 : Controller
